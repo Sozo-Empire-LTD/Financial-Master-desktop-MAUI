@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MauiApp1.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MauiApp1"
+    xmlns:pages="clr-namespace:MauiApp1.Views"
+    xmlns:productpages="clr-namespace:MauiApp1.Views.products"
+    xmlns:salepages="clr-namespace:MauiApp1.Views.sale"
+    Title="MauiApp1">
+
+    <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" Title="login" Shell.FlyoutBehavior="Disabled" Shell.FlyoutItemIsVisible="False" />
+    
+    <ShellContent Route="OrganizationsPage" Title="Organizations" ContentTemplate="{DataTemplate pages:OrganizationsPage}"/>
+
+    <ShellContent Route="DashboardPage" Title="Dashboard" ContentTemplate="{DataTemplate local:DashboardPage}" />
+   
+    <ShellContent Route="ProductsPage" Title="Products" ContentTemplate="{DataTemplate productpages:ProductsPage}" />
+
+    <ShellContent Route="ViewProductPage" Title="View Product" ContentTemplate="{DataTemplate productpages:ViewProductPage}" Shell.FlyoutItemIsVisible="False"  Shell.FlyoutBehavior="Disabled"/>
+    <ShellContent Route="CreateProductPage" Title="Create Product" ContentTemplate="{DataTemplate productpages:CreateProductPage}" Shell.FlyoutItemIsVisible="False"  Shell.FlyoutBehavior="Disabled"/>
+    <ShellContent Route="EditProductPage" Title="Edit Product" ContentTemplate="{DataTemplate productpages:EditProductPage}" Shell.FlyoutItemIsVisible="False"  Shell.FlyoutBehavior="Disabled"/>
+
+    <ShellContent Route="Buttontest" Title=" Buttontest" ContentTemplate="{DataTemplate productpages:Buttontest}" Shell.FlyoutItemIsVisible="False"/>
+    <ShellContent Route="SalePage" Title="Sale" ContentTemplate="{DataTemplate salepages:SalePage}"/>
+    <ShellContent Route="CreateSalePage" Title="CreateSalePage" ContentTemplate="{DataTemplate salepages:CreateSalePage}" Shell.FlyoutItemIsVisible="False"/>
+    <ShellContent Route="SaleTablePage" Title="SaleTablePage" ContentTemplate="{DataTemplate salepages:SaleTablePage}" Shell.FlyoutItemIsVisible="False"/>
+
+</Shell>
+   

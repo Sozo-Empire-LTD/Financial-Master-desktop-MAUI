@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+             x:Class="MauiApp1.DashboardPage"
+             BackgroundColor="#F5F5F5">
+    <Grid RowDefinitions="*"
+      ColumnDefinitions="*">
+        <!-- Side Menu -->
+
+      
+        
+        <!-- Main Content-->
+        
+        <Grid Grid.Column="0" RowDefinitions="*, Auto" BackgroundColor="#F5F5F5">
+
+            
+
+                <ScrollView>
+                <VerticalStackLayout  Padding="20">
+
+                    <!-- Dashboard Header -->
+                    <Label Text="Dashboard" FontSize="24" FontAttributes="Bold"  TextColor="Gray"/>
+
+                        <!-- Metrics Cards -->
+                    <FlexLayout Wrap="Wrap" Margin="0,20,0,20"  JustifyContent="Start" >
+                        
+
+                            <Frame Margin="0,0,20,0" HorizontalOptions="Center" VerticalOptions="Center"
+                                  BorderColor="white"  CornerRadius="10">
+                                <Grid Padding="20" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Frame Grid.Column="0"
+                                       CornerRadius="50"
+                                       WidthRequest="90"
+                                       HeightRequest="90"
+                                       Padding="0"
+                                       Margin="0,0,40,0"
+                                       BackgroundColor="#c4efe6"  HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       IsClippedToBounds="True"
+                                       BorderColor="white">
+                                    <Label Text="XAF"
+                                       TextColor="#5E35B1"  FontSize="25" Padding="10"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                        />
+                                </Frame>
+
+                                    <VerticalStackLayout Grid.Column="1" Margin="20,0,0,0" VerticalOptions="Center">
+                                        <Label Text="{Binding Value1}"
+                                   FontSize="20"
+                                   FontAttributes="Bold"
+                                   TextColor="black" Margin="0,0,0,15"  />
+                                  <Label Text="Today's"
+                                   FontSize="14"
+                                   TextColor="Gray" />
+                                    <Label Text="Income"
+                                   FontSize="14"
+                                   TextColor="Gray" />
+                                </VerticalStackLayout>
+                                </Grid>
+                            </Frame>
+                        <Frame Margin="0,0,20,0"  HorizontalOptions="Center" VerticalOptions="Center"
+                              BorderColor="white"  CornerRadius="10">
+                                <Grid Padding="20" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Frame Grid.Column="0"
+                        CornerRadius="50"
+                        WidthRequest="90"
+                        HeightRequest="90"
+                        Padding="0"
+                        Margin="0,0,40,0"       
+                        BackgroundColor="#b2bbc6"  HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        IsClippedToBounds="True"
+                        BorderColor="white">
+                                        <Label Text="XAF"
+                             TextColor="#5E35B1"  FontSize="25" Padding="10"
+                              HorizontalOptions="Center"
+                              VerticalOptions="Center"
+                                        />
+                                    </Frame>
+
+                                    <VerticalStackLayout Grid.Column="1" Margin="20,0,0,0" VerticalOptions="Center">
+                                        <Label Text="{Binding Value2}"
+                               FontSize="25"
+                               FontAttributes="Bold"
+                               TextColor="Black" Margin="0,0,0,10"   />
+                                        <Label Text="Weekly's"
+                                   FontSize="14"
+                                   TextColor="Gray" />
+                                        <Label Text="Income"
+                                   FontSize="14"
+                                   TextColor="Gray" />
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Frame>
+                        <Frame Margin="0,0,20,0"  HorizontalOptions="Center" VerticalOptions="Center"
+                    BorderColor="white"  CornerRadius="10">
+                                <Grid Padding="20" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Frame Grid.Column="0"
+                             CornerRadius="50"
+                             WidthRequest="90"
+                             HeightRequest="90"
+                             Padding="0"
+                             Margin="0,0,20,0"
+                             BackgroundColor="#EDE7F6"  HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             IsClippedToBounds="True"
+                             BorderColor="white">
+                                        <Label Text="XAF"
+                              TextColor="#5E35B1"  FontSize="25" Padding="10"
+                               HorizontalOptions="Center"
+                              VerticalOptions="Center"
+                                   />
+                                    </Frame>
+
+                                    <VerticalStackLayout Grid.Column="1" Margin="20,0,0,0" VerticalOptions="Center">
+                                        <Label Text="{Binding Value3}"
+                             FontSize="25"
+                               FontAttributes="Bold"
+                              TextColor="Black" Margin="0,0,0,10"  />
+                                        <Label Text="Monthly's"
+                                   FontSize="14"
+                                  TextColor="Gray" HorizontalTextAlignment="Start" />
+                                        <Label Text="Income"
+                                  FontSize="14"
+                                 TextColor="Gray" HorizontalTextAlignment="Start"/>
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Frame>
+                            <Frame  HorizontalOptions="Center" VerticalOptions="Center"
+      BorderColor="white"  CornerRadius="10">
+                                <Grid Padding="20" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Frame Grid.Column="0"
+            CornerRadius="50"
+            WidthRequest="90"
+            HeightRequest="90"
+            Padding="0"
+             Margin="0,0,40,0"                   
+            BackgroundColor="#fdedd3"  HorizontalOptions="Center"
+            VerticalOptions="Center"
+            IsClippedToBounds="True"
+            BorderColor="white">
+                                        <Label Text="XAF"
+                 TextColor="#5E35B1"  FontSize="25" Padding="10"
+                  HorizontalOptions="Center"
+                  VerticalOptions="Center"
+                            />
+                                    </Frame>
+
+                                    <VerticalStackLayout Grid.Column="1" Margin="20,0,0,0" VerticalOptions="Center">
+                                        <Label Text="{Binding Value4}"
+                   FontSize="25"
+                   FontAttributes="Bold"
+                   TextColor="Black" Margin="0,0,0,10"  />
+                                        <Label Text="Annual's"
+                       FontSize="14"
+                       TextColor="Gray" HorizontalTextAlignment="Start" />
+                                        <Label Text="Income"
+                       FontSize="14"
+                       TextColor="Gray" HorizontalTextAlignment="Start" />
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Frame>
+
+                      
+                    </FlexLayout>
+                    <HorizontalStackLayout>
+                        <Label Text="Select First Week Day: " FontSize="14" FontAttributes="Bold"  TextColor="Gray" Margin="0,20,0,0"/>
+                        <Picker 
+                        ItemsSource="{Binding Options}"
+                        SelectedItem="{Binding SelectedOption}"
+                        Margin="6"/>
+                    </HorizontalStackLayout>
+
+
+                        <!--graph-->
+                        <Border BackgroundColor="White" Padding="20" StrokeShape="RoundRectangle 3" Margin="0,10,0,25">
+                            <VerticalStackLayout Padding="10">
+                            <chart:SfCartesianChart>
+
+                                <!-- X-Axis (Days of the Week or Month) -->
+                                <chart:SfCartesianChart.XAxes>
+                                    <chart:CategoryAxis LabelPlacement="BetweenTicks" ShowMajorGridLines="True"/>
+                                </chart:SfCartesianChart.XAxes>
+
+                                <!-- Y-Axis (Amount in Purchases, Sales, Profits) -->
+                                <chart:SfCartesianChart.YAxes>
+                                    <chart:NumericalAxis ShowMajorGridLines="True"/>
+                                </chart:SfCartesianChart.YAxes>
+
+                                <!-- Purchase Line -->
+                                <chart:LineSeries ItemsSource="{Binding Purchases}"
+                              XBindingPath="Label"
+                              YBindingPath="Value"
+                              Label="Purchases"
+                              />
+
+                                <!-- Sales Line -->
+                                <chart:LineSeries ItemsSource="{Binding Sales}"
+                              XBindingPath="Label"
+                              YBindingPath="Value"
+                              Label="Sales"
+                              />
+
+                                <!-- Profit Line -->
+                                <chart:LineSeries ItemsSource="{Binding Profits}"
+                              XBindingPath="Label"
+                              YBindingPath="Value"
+                              Label="Profits"
+                              />
+
+                                <chart:SfCartesianChart.Legend>
+                                    <chart:ChartLegend/>
+                                </chart:SfCartesianChart.Legend>
+
+                            </chart:SfCartesianChart>
+
+
+                        </VerticalStackLayout>
+                        </Border>
+                        <!-- Recent Transactions Table -->
+
+                        <Border BackgroundColor="White" Padding="10" StrokeShape="RoundRectangle 3">
+                            <VerticalStackLayout>
+                            <Label Text="Recent Transactions" FontSize="14" FontAttributes="Bold"  TextColor="Gray" Margin="0,20,0,25"/>
+
+                                <CollectionView x:Name="TransactionsList" ItemsSource="{Binding Transactions}">
+                                    <CollectionView.Header>
+                                    <Grid ColumnDefinitions="*,*,*,*,*"  BackgroundColor="#F5F5F5" Padding="20">
+                                        <Label Text="User Name" FontAttributes="Bold"  TextColor="Gray" Grid.Column="0"/>
+                                        <Label Text="Type" FontAttributes="Bold"  TextColor="Gray" Grid.Column="1"/>
+                                        <Label Text="Date" FontAttributes="Bold"  TextColor="Gray" Grid.Column="2"/>
+                                        <Label Text="Amount" FontAttributes="Bold"  TextColor="Gray" Grid.Column="3"/>
+                                        <Label Text="Action" FontAttributes="Bold"  TextColor="Gray" Grid.Column="4"/>
+                                        </Grid>
+                                    </CollectionView.Header>
+
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                        <VerticalStackLayout>
+                                            <Grid ColumnDefinitions="*,*,*,*,*" Padding="10" >
+                                                <Label Text="{Binding FullName}" TextColor="Gray" Grid.Column="0"/>
+                                                <Label Text="{Binding Type}"  TextColor="Gray" Grid.Column="1"/>
+                                                <Label Text="{Binding FormattedDate}"  TextColor="Gray" Grid.Column="2"/>
+                                                <Label Text="{Binding Amount}"  TextColor="Gray" Grid.Column="3"/>
+                                                <Button Text="🔽" BackgroundColor="Transparent"  TextColor="Gray" Grid.Column="4"/>
+                                            </Grid>
+                                            <!-- Conditional Separator -->
+                                            <BoxView HeightRequest="1" BackgroundColor="Gray" Opacity="0.5">
+                                                <BoxView.Triggers>
+                                                    <DataTrigger TargetType="BoxView" Binding="{Binding IsLastItem}" Value="True">
+                                                        <Setter Property="IsVisible" Value="False"/>
+                                                    </DataTrigger>
+                                                </BoxView.Triggers>
+                                            </BoxView>
+                                        </VerticalStackLayout>
+                                    </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </VerticalStackLayout>
+                        </Border>
+                  
+             
+            </VerticalStackLayout>
+            </ScrollView>
+            <!-- Footer (only for main content) -->
+            <Frame Grid.Row="1"
+               BackgroundColor="#EDEFF3"
+               Padding="20"
+              
+               HorizontalOptions="Fill">
+                <Label Text="© 2025 Sozo Empire Ltd. All Rights Reserved."
+                FontSize="12"
+                TextColor="Gray"
+                HorizontalOptions="Center"/>
+            </Frame>
+
+        </Grid>
+
+    </Grid>
+   
+</ContentPage>

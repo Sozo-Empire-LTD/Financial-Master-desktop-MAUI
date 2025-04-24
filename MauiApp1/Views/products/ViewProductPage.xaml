@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:viewmodels="clr-namespace:MauiApp1.ViewModels"
+             x:Class="MauiApp1.Views.products.ViewProductPage"
+             BackgroundColor="#edeff4">
+   
+
+    <Grid RowDefinitions="*"
+      ColumnDefinitions="*">
+        <!-- Side Menu -->
+
+
+
+        <!-- Main Content-->
+
+        <Grid Grid.Column="0" RowDefinitions="*, Auto" BackgroundColor="#F5F5F5">
+
+
+
+            <ScrollView>
+                <VerticalStackLayout  Padding="20">
+                    <HorizontalStackLayout Spacing="5" Margin="0,0,0,20">
+                        <Label Text="Home" TextColor="#9CA3AF" />
+                        <Label Text=">" TextColor="#9CA3AF" />
+                        <Label Text="Products" TextColor="#9CA3AF" />
+                        <Label Text=">" TextColor="#9CA3AF" />
+                        <Label Text="{Binding ProductD.Name}" TextColor="#333333" FontAttributes="Bold" />
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="10" Margin="0,0,0,20">
+                        <Frame  WidthRequest="420" HeightRequest="120" CornerRadius="3" Padding="10" BackgroundColor="#ffffff" BorderColor="white" Margin="0,0,20,0">
+                            <HorizontalStackLayout Spacing="140">
+
+                                <Frame CornerRadius="3" Padding="10" BackgroundColor="#d9d5f6" WidthRequest="60" HeightRequest="60">
+                                    <Image Source="icon_wallet.png" WidthRequest="40" HeightRequest="40" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                 
+                                </Frame>
+
+                                <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="10,0,0,0">
+                                    <Label Text="{Binding QuantityAv}" FontSize="Large" FontAttributes="Bold" HorizontalOptions="End" />
+                                    <Label Text="Quantity Available" FontSize="Small"  TextColor="Gray"/>
+                                </VerticalStackLayout>
+
+                            </HorizontalStackLayout>
+                        </Frame>
+                        <Frame WidthRequest="420" HeightRequest="120" CornerRadius="3" Padding="10" BackgroundColor="#ffffff" BorderColor="white" Margin="0,0,20,0">
+                            <HorizontalStackLayout Spacing="200">
+
+                                <Frame CornerRadius="3" Padding="10" BackgroundColor="#c0eee2" WidthRequest="60" HeightRequest="60">
+                                    <Image Source="icon_wallet.png" WidthRequest="40" HeightRequest="40" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Frame>
+
+                                <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="End" Margin="10,0,0,0">
+                                    <Label Text="{Binding Purchases}" FontSize="Large" FontAttributes="Bold" HorizontalOptions="End" />
+                                    <Label Text="Purchases" FontSize="Small"  TextColor="Gray"/>
+                                </VerticalStackLayout>
+
+                            </HorizontalStackLayout>
+                        </Frame>
+                        <Frame  WidthRequest="420" HeightRequest="120" CornerRadius="3" Padding="10" BackgroundColor="#ffffff" BorderColor="white">
+                            <HorizontalStackLayout Spacing="240">
+
+                                <Frame CornerRadius="3" Padding="10" BackgroundColor="#c0eee2" WidthRequest="60" HeightRequest="60">
+                                    <Image Source="icon_wallet.png" WidthRequest="40" HeightRequest="40" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Frame>
+
+                                <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="10,0,0,0">
+                                    <Label Text="{Binding Sale}" FontSize="Large" FontAttributes="Bold" HorizontalOptions="End" />
+                                    <Label Text="Sales" FontSize="Small" TextColor="Gray"/>
+                                </VerticalStackLayout>
+
+                            </HorizontalStackLayout>
+                        </Frame>
+
+                    </HorizontalStackLayout>
+
+                    <Grid  BackgroundColor="White" ColumnSpacing="40">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <VerticalStackLayout Grid.Column="0" Padding="20" Margin="20">
+                            <HorizontalStackLayout Margin="0,0,0,20">
+                                <Label Text="Item Details" FontSize="16" FontAttributes="Bold" VerticalOptions="Center" />
+                                <Button Text="Edit" Margin="10,0,0,0" CornerRadius="3" Padding="25,0,25,0" Clicked="MoveToEditProductPage"/>
+                                <Button Text="Sell" Margin="10,0,0,0" BackgroundColor="#f25566" CornerRadius="3" Padding="25,0,25,0"/>
+                            </HorizontalStackLayout>
+
+                            <Label Text="{Binding ProductD.Name}" FontSize="18" FontAttributes="Bold" Margin="0,10,0,0" />
+                           
+
+                            <Label Text="{Binding ProductD.Price, StringFormat='Sale Price : XAF {0:N0}'}" Margin="0,5,0,0" FontSize="18" FontAttributes="Bold" />
+                            <Label Text="{Binding ProductD.CostPrice, StringFormat='Cost Price : XAF {0:N0}'}" Margin="0,5,0,0" FontSize="18" FontAttributes="Bold" />
+                            <Label Text="{Binding PcsUnit, StringFormat='Quantity in Pcs : {0:N0} Pcs'}" Margin="0,5,0,0" FontSize="18" FontAttributes="Bold" />
+                            <Label Text="{Binding KgUnit, StringFormat='Quantity in Kg : {0:N0} Kg'}" Margin="0,5,0,0" FontSize="18" FontAttributes="Bold" />
+                            <Label Text="{Binding BoxUnit, StringFormat='Quantity in Boxes : {0:N0} Boxes'}" Margin="0,5,0,0" FontSize="18" FontAttributes="Bold" />
+                            <Label Text="{Binding ProductUnit.BaseUnit, StringFormat='Base Unit : {0:N0}'}" Margin="0,5,0,0" FontSize="18" FontAttributes="Bold" />
+                            <Label Text="{Binding CategoryName, StringFormat='Category : {0:N0}'}" Margin="0,5,0,0" FontSize="18" FontAttributes="Bold" />
+                            <Label Text="{Binding ProductD.Max, StringFormat='Maximum Amount : {0:N0}'}" Margin="0,5,0,0" FontSize="18" FontAttributes="Bold" />
+                           
+
+                            <Label Text="QR Code :" Margin="0,20,0,0" FontSize="18" FontAttributes="Bold" />
+                            <Image Source="your_qr_code_image.png" WidthRequest="100" HeightRequest="100" />
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Column="1" Padding="20">
+                            <HorizontalStackLayout Spacing="600" Margin="20">
+                                <Label Text="Product Type" FontSize="16" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center" TextColor="Gray"/>
+                                <Button Text="+Add" HorizontalOptions="End" CornerRadius="3" BackgroundColor="#1bbc9a" Padding="25,0,25,0"/>
+                            </HorizontalStackLayout>
+
+                            <Grid Margin="0,10,0,0" BackgroundColor="#F5F5F5" Padding="20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="SN" Grid.Column="0" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label Text="Name" Grid.Column="1" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label Text="Type" Grid.Column="2" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label Text="Price" Grid.Column="3" FontAttributes="Bold" TextColor="Gray"/>
+                            </Grid>
+
+                        </VerticalStackLayout>
+                    </Grid>
+
+
+                    <Frame Padding="10" BorderColor="#dcdcdc" CornerRadius="5" Margin="0,30,0,0">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding SubTitle}" FontAttributes="Bold" Margin="10,20,0,20" FontSize="16"/>
+
+                            <HorizontalStackLayout Spacing="800" Margin="0,10,0,10">
+                                <HorizontalStackLayout HorizontalOptions="Start" Spacing="10">
+                                    <Button Text="▼" BackgroundColor="#e0e0e0" TextColor="Black" CornerRadius="30" />
+                                    <Picker ItemsSource="{Binding pagFilters}" ItemDisplayBinding="{Binding Number}" WidthRequest="100"/>
+                                </HorizontalStackLayout>
+                                
+                                <Button Text="Print" BackgroundColor="#8080ff" TextColor="White" CornerRadius="3" HorizontalOptions="End"/>
+                            </HorizontalStackLayout>
+                               <HorizontalStackLayout Spacing="10" Margin="0,10,0,10">
+                                    <Picker ItemsSource="{Binding SalesFilters}" ItemDisplayBinding="{Binding Name}" WidthRequest="100"/>
+                                  <HorizontalStackLayout Spacing="10" >
+                                     <Entry Placeholder="mm/dd/yyyy" WidthRequest="100" />
+                                    <Frame BackgroundColor="Gray">
+                                        <Label Text="To" />
+                                    </Frame>
+                                    <Entry Placeholder="mm/dd/yyyy" WidthRequest="100" />
+                                    <Button Text="Filter" BackgroundColor="#d76372" TextColor="white" CornerRadius="3" Padding="20,0,20,0"  VerticalOptions="Center" HorizontalOptions="Center"/>
+                                </HorizontalStackLayout>
+                            </HorizontalStackLayout>
+                            
+                            <Grid Margin="0,10,0,0" BackgroundColor="#F5F5F5" Padding="20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="SN" Grid.Column="0" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label Text="Created Date" Grid.Column="1" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label Text="Transaction Date" Grid.Column="2" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label Text="Price" Grid.Column="3" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label Text="Quantity" Grid.Column="4" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label Text="Total" Grid.Column="5" FontAttributes="Bold" TextColor="Gray"/>
+                            </Grid>
+                            <Frame  WidthRequest="400" HeightRequest="400" CornerRadius="3" Padding="10" BackgroundColor="#ffffff" BorderColor="white">
+                                
+                            </Frame>
+
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame Padding="10" BorderColor="#dcdcdc" CornerRadius="5" Margin="0,30,0,0">
+                        <VerticalStackLayout>
+                            
+                            <Grid Margin="0,10,0,0" BackgroundColor="#F5F5F5" Padding="20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="SN" Grid.Column="0" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label Text="Created Date" Grid.Column="1" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label Text="Transaction Date" Grid.Column="2" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label Text="Agent" Grid.Column="3" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label Text="Type" Grid.Column="4" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label Text="Price" Grid.Column="5" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label Text="Quantity" Grid.Column="6" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label Text="Quantity Left" Grid.Column="7" FontAttributes="Bold" TextColor="Gray"/>
+                            </Grid>
+                            <Frame  WidthRequest="400" HeightRequest="400" CornerRadius="3" Padding="10" BackgroundColor="#ffffff" BorderColor="white">
+
+                            </Frame>
+                        </VerticalStackLayout>
+                    </Frame>
+
+
+                </VerticalStackLayout>
+            </ScrollView>
+            <!-- Footer (only for main content) -->
+            <Frame Grid.Row="1"
+               BackgroundColor="#EDEFF3"
+               Padding="20"
+              
+               HorizontalOptions="Fill">
+                <Label Text="© 2025 Sozo Empire Ltd. All Rights Reserved."
+                FontSize="12"
+                TextColor="Gray"
+                HorizontalOptions="Center"/>
+            </Frame>
+
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Views.products.EditProductPage"
+             xmlns:productpages="clr-namespace:MauiApp1.Views.products">
+    <Grid RowDefinitions="*"
+      ColumnDefinitions="*">
+        <!-- Side Menu -->
+
+
+
+        <!-- Main Content-->
+
+        <Grid Grid.Column="0" RowDefinitions="*, Auto" BackgroundColor="#F5F5F5">
+
+
+
+            <ScrollView>
+                <VerticalStackLayout  Padding="20">
+                   
+
+                    <HorizontalStackLayout Spacing="10" Margin="0,0,0,20">
+                        <Label Text="Home" TextColor="#9CA3AF" />
+                        <Label Text=">" TextColor="#9CA3AF" />
+                        <Label Text="Products" TextColor="#9CA3AF" />
+                        <Label Text=">" TextColor="#9CA3AF" />
+                        <Label Text="Edit Product" TextColor="#333333" FontAttributes="Bold" />
+                    </HorizontalStackLayout>
+
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="30" BindingContext="{Binding Source={RelativeSource AncestorType={x:Type productpages:EditProductPage}}}">
+                        <Frame Grid.Column="0" Padding="10" BackgroundColor="White" CornerRadius="3" BorderColor="white">
+                            <VerticalStackLayout Spacing="10">
+                                <Label Text="GENERAL" FontAttributes="Bold" />
+
+                                <Label Text="Product Name *" />
+                                <Entry Placeholder="e.g. Apple iMac" BackgroundColor="#f0f0f0" x:Name="name" />
+
+                                <Label Text="Please enter description" />
+                                <Editor Placeholder="Please enter description" BackgroundColor="#f0f0f0" HeightRequest="100" x:Name="description" />
+
+                                <Label Text="Categories *" />
+
+                                <Picker ItemsSource="{Binding Categories}"  BackgroundColor="#f0f0f0" ItemDisplayBinding="{Binding Name}" SelectedIndexChanged="CategoryPicker_SelectedItemChanged" x:Name="categoryPicker" />
+
+                                <Label Text="Sale Price *" />
+                                <Entry Placeholder="Enter amount" Keyboard="Numeric" BackgroundColor="#f0f0f0" x:Name="price"/>
+
+                                <Label Text="Purchase Price *" />
+                                <Entry Placeholder="Enter amount" Keyboard="Numeric" BackgroundColor="#f0f0f0" x:Name="cost_price"/>
+
+                                <Label Text="Base Unit" />
+                                <Picker  BackgroundColor="#f0f0f0" x:Name="base_unit">
+                                    <Picker.Items>
+                                        <x:String>Pcs</x:String>
+                                        <x:String>Kg</x:String>
+                                        <x:String>Box</x:String>
+
+                                    </Picker.Items>
+                                </Picker>
+
+                                <Label Text="Other Units" Margin="0,20,0,10"/>
+
+
+                                <Label Text="Pcs Unit"/>
+                                <Entry  Keyboard="Numeric" BackgroundColor="#f0f0f0"  x:Name="pcs_unit"/>
+
+                                <Label Text="Kg Unit"/>
+                                <Entry  Keyboard="Numeric" BackgroundColor="#f0f0f0"  x:Name="kg_unit"/>
+
+                                <Label Text="Box Unit"/>
+                                <Entry Keyboard="Numeric" BackgroundColor="#f0f0f0"  x:Name="box_unit"/>
+
+                            </VerticalStackLayout>
+                        </Frame>
+
+                        <Frame Grid.Column="1" Padding="10" BackgroundColor="White" CornerRadius="3" BorderColor="white">
+                            <VerticalStackLayout Spacing="10">
+                                <Label Text="EXTRAS" FontAttributes="Bold" />
+
+                                <Label Text="Location" />
+                                <Picker  BackgroundColor="#f0f0f0" x:Name="location">
+                                    <Picker.Items>
+                                        <x:String>Buea</x:String>
+                                        <x:String>Douala</x:String>
+                                        <x:String>Kumba</x:String>
+
+                                    </Picker.Items>
+                                </Picker>
+
+                                <Label Text="Minimum Product" />
+                                <Entry Placeholder="Min Product before Notification" Keyboard="Numeric" BackgroundColor="#f0f0f0" x:Name="min"/>
+
+                                <Label Text="Maximum Product" />
+                                <Entry Placeholder="Max Product" Keyboard="Numeric" BackgroundColor="#f0f0f0"  x:Name="max"/>
+
+                                <Label Text="BarCode" />
+                                <Entry Placeholder="Signal" BackgroundColor="#f0f0f0" x:Name="code"/>
+
+                                <Label Text="Signal" />
+                                <Picker BackgroundColor="#f0f0f0"
+                                    x:Name="signal"
+                                    ItemsSource="{Binding SignalOptions, Source={RelativeSource AncestorType={x:Type productpages:EditProductPage}}}"
+                                    ItemDisplayBinding="{Binding Display}"
+                                    SelectedIndexChanged="SignalPicker_SelectedIndexChanged" />
+
+                                <Label Text="Image" />
+                                <Button Text="Upload Image" BackgroundColor="#e0e0e0" CornerRadius="5" />
+
+                            </VerticalStackLayout>
+                        </Frame>
+                    </Grid>
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="10" Margin="0,20,0,0">
+                        <Button Text="Cancel" BackgroundColor="#e0e0e0" TextColor="Black" CornerRadius="5" Clicked="OnProductEditCancel" />
+                        <Button Text="Save" BackgroundColor="#8080ff" TextColor="White" CornerRadius="5" x:Name="saveButton"/>
+                    </HorizontalStackLayout>
+
+                </VerticalStackLayout>
+            </ScrollView>
+            <!-- Footer (only for main content) -->
+            <Frame Grid.Row="1"
+               BackgroundColor="#EDEFF3"
+               Padding="20"
+              
+               HorizontalOptions="Fill">
+                <Label Text="© 2025 Sozo Empire Ltd. All Rights Reserved."
+                FontSize="12"
+                TextColor="Gray"
+                HorizontalOptions="Center"/>
+            </Frame>
+
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

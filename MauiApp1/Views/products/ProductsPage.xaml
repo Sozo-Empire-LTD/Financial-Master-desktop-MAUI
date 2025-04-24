@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:MauiApp1.ViewModels" 
+             x:Class="MauiApp1.Views.products.ProductsPage"
+             Title="ProductsPage"
+             BackgroundColor="#edeff4">
+
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20">
+            <HorizontalStackLayout Margin="0,0,0,20">
+                <Label Text="Home" TextColor="#9CA3AF" />
+                <Label Text="/" TextColor="#9CA3AF" />
+                <Label Text="Products" TextColor="#9CA3AF" />
+                <Label Text="/" TextColor="#9CA3AF" />
+                <Label Text="Products" TextColor="#6B7280" FontAttributes="Bold"/>
+            </HorizontalStackLayout>
+            <Frame Padding="30" BorderColor="#ffffff" CornerRadius="4" Margin="20">
+                <VerticalStackLayout>
+                    <Grid ColumnDefinitions="*,Auto" Margin="0,20,0,20">
+                        <Label Text="Products" TextColor="#1F2937" FontSize="24" FontAttributes="Bold" VerticalOptions="Center" />
+                        
+                        <HorizontalStackLayout Grid.Column="1" Spacing="10">
+                            <Button Text="Import" BackgroundColor="#1fba99" TextColor="White" BorderColor="#D1D5DB" CornerRadius="1"/>
+                            <Button Text="Export" BackgroundColor="#6558db" TextColor="White" BorderColor="#D1D5DB" CornerRadius="1"/>
+                            <Button Text="Add Product" BackgroundColor="#f25566" TextColor="White" CornerRadius="1" Clicked="OnAddProductClicked" />
+                            <Button Text="Restore Products" BackgroundColor="#50c6e1" TextColor="White" BorderColor="#D1D5DB" CornerRadius="1"/>
+                        </HorizontalStackLayout>
+                    </Grid>
+
+                    <Grid ColumnDefinitions="Auto,Auto,Auto,Auto,Auto" RowDefinitions="Auto" Margin="0,20,0,20" ColumnSpacing="20">
+                        <Frame BorderColor="#D1D5DB" Padding="0" CornerRadius="5" Grid.Column="0" WidthRequest="300">
+                            <Entry Placeholder="Type here to search..." Text="{Binding SearchQuery}" x:Name="search"/>
+                        </Frame>
+                        <Frame BorderColor="#D1D5DB" Padding="0" CornerRadius="5" Grid.Column="1" WidthRequest="200">
+                            <Entry Placeholder="Name" TextColor="#374151" x:Name="name"/>
+                        </Frame>
+                        <Frame BorderColor="#D1D5DB" Padding="0" CornerRadius="5" Grid.Column="2" WidthRequest="200">
+                            <Picker ItemsSource="{Binding LocationCategories}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedLocationCategory}" x:Name="location"/>
+                        </Frame>
+                        <Frame BorderColor="#D1D5DB" Padding="0" CornerRadius="5" Grid.Column="3" WidthRequest="200">
+                            <Picker ItemsSource="{Binding Categories}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedCategory}" x:Name="category_id"/>
+                        </Frame>
+                       
+                        <Button Text="Filter" Grid.Column="4" BackgroundColor="#19bc9d" TextColor="White" CornerRadius="1" Command="{Binding ApplyFiltersCommand}" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Frame>
+            
+
+                <CollectionView ItemsSource="{Binding Products}" ItemsLayout="VerticalGrid, 4">
+                    
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                           <FlexLayout Wrap="Wrap"  AlignContent="Start" JustifyContent="SpaceAround">
+
+                            <Frame WidthRequest="300" HeightRequest="140" BackgroundColor="White" Padding="10" BorderColor="#D1D5DB" CornerRadius="2" Margin="5">
+
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:ProductViewModel}}, Path=ProductTappedCommand}" CommandParameter="{Binding .}" />
+                                </Frame.GestureRecognizers>
+
+                                <VerticalStackLayout Padding="5" Margin="5">
+                                    <Image Source="{Binding Image}" WidthRequest="50" HeightRequest="50" Aspect="AspectFit" HorizontalOptions="Center"/>
+                                        <Label Text="{Binding Name}" TextColor="#1F2937" FontAttributes="Bold" Margin="0,10,0,0" HorizontalTextAlignment="Center"/>
+                                        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                                          
+                                            <Label Text="{Binding Price, StringFormat='XAF {0:N0}'}" TextColor="Gray" FontAttributes="Bold" HorizontalTextAlignment="End" HorizontalOptions="End"/>
+                                        </HorizontalStackLayout>
+                                    </VerticalStackLayout>
+                                </Frame>
+                             
+                               </FlexLayout>
+                        
+                    </DataTemplate>
+                    </CollectionView.ItemTemplate>
+               
+            </CollectionView>
+              
+            
+            <HorizontalStackLayout HorizontalOptions="Center" Margin="0,20,0,0">
+                <Button Text="Previous" Command="{Binding PreviousPageCommand}" />
+                <Label Text="{Binding Pagination.CurrentPage}" VerticalOptions="Center" />
+                <Button Text="Next" Command="{Binding NextPageCommand}" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

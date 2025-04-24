@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Views.sale.SalePage"
+             Title="SalePage"
+             BackgroundColor="#edeff4">
+
+
+   
+
+        <Grid Grid.Column="0" RowDefinitions="*, Auto" BackgroundColor="#F5F5F5">
+
+
+
+            <ScrollView>
+                <VerticalStackLayout Padding="20">
+
+                    <HorizontalStackLayout Margin="20,10,0,2" Spacing="600">
+                        <Label Text="All Sales Frome 02 Apr, 2025 To 09 Apr, 2025" TextColor="Gray" HorizontalOptions="Start"/>
+
+                        <HorizontalStackLayout Margin="0,0,0,20" HorizontalOptions="End">
+                            <Label Text="Home" TextColor="#9CA3AF" />
+                            <Label Text="/" TextColor="#9CA3AF" />
+                            <Label Text="home" TextColor="#9CA3AF" />
+                            <Label Text="/" TextColor="#9CA3AF" />
+                            <Label Text="All Sales Frome 02 Apr, 2025 To 09 Apr, 2025" TextColor="#9CA3AF" FontAttributes="Bold"/>
+
+                        </HorizontalStackLayout>
+
+                    </HorizontalStackLayout>
+
+
+
+                    <Frame Padding="30" BorderColor="#ffffff" CornerRadius="4" Margin="20" HeightRequest="700">
+                        <VerticalStackLayout>
+                            <Grid ColumnDefinitions="*,*" Margin="0,20,0,20">
+
+
+                                <HorizontalStackLayout Grid.Column="1" Spacing="20" Margin="60,0,0,0">
+                                    <Button Text="Sales Table" BackgroundColor="#1fba99" TextColor="White" BorderColor="#D1D5DB" HeightRequest="30"
+                                          WidthRequest="100"  CornerRadius="3"  Clicked="MoveToSalesTablePage"/>
+                                    <Button Text="Add" BackgroundColor="Red" TextColor="White"  HeightRequest="30"
+                                        WidthRequest="80"  BorderColor="#D1D5DB" CornerRadius="3"  Clicked="MoveToCreateSalesPage"/>
+
+                                    <Button Text="Print" BackgroundColor="BlueViolet"  TextColor="White" HeightRequest="30"
+                                       WidthRequest="80"   BorderColor="#D1D5DB" CornerRadius="3"/>
+                                </HorizontalStackLayout>
+                            </Grid>
+
+                            <Grid ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,*" RowDefinitions="Auto" Margin="0,20,0,20" ColumnSpacing="20">
+                                <Frame BorderColor="#D1D5DB" Padding="0" CornerRadius="5" Grid.Column="0" WidthRequest="300">
+                                <Entry x:Name="SearchEntry" Placeholder="Type here to search..." Text="{Binding SearchQuery}" />
+                                </Frame>
+
+                            <DatePicker x:Name="StartDate"  Grid.Column="1" WidthRequest="110"/>
+
+                                <Frame BorderColor="#D1D5DB" Padding="0" CornerRadius="5" Grid.Column="2" WidthRequest="50">
+                                    <Label Text="to" TextColor="#9CA3AF" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Frame>
+
+                            <DatePicker x:Name="EndDate" Date="{Binding SelectedDate}" WidthRequest="110" Grid.Column="3"/>
+
+                            <Picker WidthRequest="130" x:Name="AgentName" Grid.Column="4"/>
+
+
+                            <Button  Text="Filter" Grid.Column="5" BackgroundColor="red" TextColor="White" CornerRadius="1" WidthRequest="80" Clicked="FilterButton_Clicked" />
+                            </Grid>
+
+                            <Grid Margin="0,10,0,0" BackgroundColor="#F5F5F5" Padding="20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="SN" Grid.Column="0" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label Text="Client Name" Grid.Column="1" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label Text="Sales Agent" Grid.Column="2" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label Text="Total Items" Grid.Column="3" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label Text="Transaction Date" Grid.Column="4" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label Text="Registered Date" Grid.Column="5" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label Text="Total" Grid.Column="6" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label Text="Lastly Edited" Grid.Column="7" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label Text="Action" Grid.Column="8" FontAttributes="Bold" TextColor="Gray"/>
+                            </Grid>
+
+                            <Grid Margin="0,10,0,0" BackgroundColor="White" Padding="20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="1" Grid.Column="0"  TextColor="Black"/>
+                                <Label Text="Default Client" Grid.Column="1" TextColor="Black"/>
+                                <Label Text="Test Test" Grid.Column="2"  TextColor="Black"/>
+                                <Label Text="1 pcs" Grid.Column="3"  TextColor="Black"/>
+                                <Label Text="22/04/2025" Grid.Column="4"  TextColor="Black"/>
+                                <Label Text="22/04/2025" Grid.Column="5"  TextColor="Black"/>
+                                <Label Text="30,000" Grid.Column="6"  TextColor="Black"/>
+                                <Label Text=" " Grid.Column="7"  TextColor="Black"/>
+                                <Label Text="Action" Grid.Column="8" FontAttributes="Bold" TextColor="Gray"/>
+                            </Grid>
+
+
+
+
+
+                            <Grid Margin="0,10,0,0" BackgroundColor="#F5F5F5" Padding="20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label   Grid.Column="0" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label Text="Total" Grid.Column="1" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label  Grid.Column="2" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label  Grid.Column="3" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label  Grid.Column="4" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label  Grid.Column="5" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label Text="XAF 30,000" Grid.Column="6" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label  Grid.Column="7" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label  Grid.Column="8" FontAttributes="Bold" TextColor="Gray"/>
+                            </Grid>
+                        </VerticalStackLayout>
+
+
+
+                    </Frame>
+
+
+                </VerticalStackLayout>
+            </ScrollView>
+            <!-- Footer (only for main content) -->
+            <Frame Grid.Row="1"
+               BackgroundColor="#EDEFF3"
+               Padding="20"
+
+               HorizontalOptions="Fill">
+                <Label Text="© 2025 Sozo Empire Ltd. All Rights Reserved."
+                FontSize="12"
+                TextColor="Gray"
+                HorizontalOptions="Center"/>
+            </Frame>
+
+        </Grid>
+       
+
+
+   
+</ContentPage>

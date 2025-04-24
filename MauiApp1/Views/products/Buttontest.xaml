@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Views.products.Buttontest"
+             Title="Buttontest">
+    <VerticalStackLayout Padding="20">
+        <Frame CornerRadius="10" Padding="10" BackgroundColor="#ffffff">
+            <VerticalStackLayout Spacing="5">
+
+                <Image Source="product_pic.png" WidthRequest="80" HeightRequest="80" Aspect="AspectFit" HorizontalOptions="Center"/>
+
+                <Label Text="Augustus Perfume" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center" />
+
+                <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                    <Label Text="0 pcs" FontSize="Small" />
+                    <Label Text="XAF-25,000" FontSize="Small" FontAttributes="Bold" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout x:Name="ButtonContainer" IsVisible="False" Spacing="5" HorizontalOptions="Center" Margin="0,10,0,0">
+                    <Button Text="Edit" BackgroundColor="#2ecc71" TextColor="White" Clicked="EditButton_Clicked" />
+                    <Button Text="View" BackgroundColor="#3498db" TextColor="White" Clicked="ViewButton_Clicked" />
+                    <Button Text="Sell" BackgroundColor="#f39c12" TextColor="White" Clicked="SellButton_Clicked" />
+                    <Button Text="Soft delete" BackgroundColor="#e74c3c" TextColor="White" Clicked="SoftDeleteButton_Clicked" />
+                    <Button Text="Delete" BackgroundColor="#e74c3c" TextColor="White" Clicked="DeleteButton_Clicked" />
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Frame_Tapped" />
+            </Frame.GestureRecognizers>
+        </Frame>
+    </VerticalStackLayout>
+</ContentPage>
